@@ -1,8 +1,9 @@
 /// <reference types="cypress" />
+const perfil = require('../fixtures/perfil.json')
 
 context('Funcionalidade Login', () => {
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+        cy.visit('minha-conta/')
     });
 
     afterEach(() => {
@@ -13,6 +14,13 @@ context('Funcionalidade Login', () => {
     it('Deve fazer login com sucesso', () => {
         cy.get('[name="username"]').type('jm.carvalho.pessoal@gmail.com')
         cy.get('.woocommerce-form > :nth-child(2) > [name="password"]').type('teste@teste')
+        cy.get('[name="login"]').click()
+        cy.get('a > .hidden-xs').should('contain', "Welcome")
+    });
+
+    it.only('Login com massa de dados', () => {
+        cy.get('[name="username"]').type(perfil.usuario)
+        cy.get('.woocommerce-form > :nth-child(2) > [name="password"]').type(perfil.senha, {log: false})
         cy.get('[name="login"]').click()
         cy.get('a > .hidden-xs').should('contain', "Welcome")
     });

@@ -5,7 +5,7 @@ const Faker = require('faker/lib');
 describe('Selecionando produtos da lista e autenticando carrinho de compras' , () => {
 
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+        cy.visit('produtos/')
     });
 
     afterEach(() => {
