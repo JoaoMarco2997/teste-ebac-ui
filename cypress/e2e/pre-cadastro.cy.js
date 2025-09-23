@@ -7,6 +7,7 @@ describe('Funcionalidade de Cadastro', () => {
     let firstNameFaker = faker.name.firstName()
     let lastNameFaker = faker.name.lastName()
     let emailFaker = faker.internet.email(firstNameFaker + lastNameFaker)
+    let passwordFaker = faker.internet.password()
 
     beforeEach(() => {
         cy.visit('minha-conta')
@@ -27,8 +28,12 @@ describe('Funcionalidade de Cadastro', () => {
         cy.get('[name="account_first_name"]').type(firstNameFaker)
         cy.get('[name="account_last_name"]').type(lastNameFaker)
         cy.get('[name="save_account_details"]').click()
-        cy.get('.woocommerce-message').should('contain' , "Detalhes da conta modificados com sucesso")
-        
+        cy.get('.woocommerce-message').should('contain', "Detalhes da conta modificados com sucesso")
+
+    });
+
+    it.only('Realizando cadastro com custom commands', () => {
+        cy.preCadastro(emailFaker, passwordFaker, firstNameFaker, lastNameFaker)
     });
 
 
@@ -38,7 +43,7 @@ describe('Funcionalidade de Cadastro', () => {
 
 
 
-    
+
 });
 
 

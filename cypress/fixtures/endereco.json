@@ -1,0 +1,12 @@
+{
+    "Nome":"João",
+    "Sobrenome":"Carvalho",
+    "Empresa": "EBAC",
+    "Pais": "Brasil",
+    "Residencia":"Rua Amorim",
+    "Cidade":"Rio de janeiro",
+    "Estado":"Rio de janeiro",
+    "CEP":"21110330",
+    "Telefone":"997999922",
+    "Email":"joaoCarvalho@teste.com"
+}
